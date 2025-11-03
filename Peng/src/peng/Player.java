@@ -31,7 +31,7 @@ class Player extends Rectangle{
 	/**
 	 * Animation variables
 	 */
-	private int currentIndex = 0, currentFrames = 0, maximumFrames = spd, maximumIndex = 3;
+	private int currentIndex = 0, currentFrames = 0, maximumFrames = 60, maximumIndex = 3;
 
 	/**
 	 * Animation control and bullet axis control
@@ -160,8 +160,8 @@ class Player extends Rectangle{
 	private void animate() {
 		
 		if(moving) {
-			currentFrames++;
-			if(currentFrames == maximumFrames) {
+			currentFrames+=spd;
+			if(currentFrames >= maximumFrames) {
 				currentIndex++;
 				currentFrames = 0;
 				if(currentIndex > maximumIndex) {

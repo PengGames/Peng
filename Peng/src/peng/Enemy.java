@@ -24,7 +24,7 @@ class Enemy extends Rectangle{
 	/**
 	 * Animation variables
 	 */
-	private int currentIndex = 0, currentFrames = 0, maximumFrames = speed, maximumIndex = 3;
+	private int currentIndex = 0, currentFrames = 0, maximumFrames = 60, maximumIndex = 3;
 
 	/**
 	 * Animation control
@@ -168,8 +168,8 @@ class Enemy extends Rectangle{
 	private void animate() {
 		
 		if(moving) {
-			currentFrames++;
-			if(currentFrames == maximumFrames) {
+			currentFrames+=speed;
+			if(currentFrames >= maximumFrames) {
 				currentIndex++;
 				currentFrames = 0;
 				if(currentIndex > maximumIndex) {
